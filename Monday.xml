@@ -1,27 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<day>
-<subject>
-	<time>9:00</time>
-    <name>Сети и сети и сети</name>
-    <type>Лекция</type>
-	<teacher>Желенков Б.В.</teacher>
-</subject>
-<subject>
-	<time>10:40</time>
-    <name>Сети и сети и сети</name>
-    <type>Лекция</type>
-	<teacher>Желенков Б.В.</teacher>
-</subject>
-<subject>
-	<time>11:55</time>
-    <name>Базы данных</name>
-    <type>Лекция</type>
-	<teacher>Голдовский Я.М.</teacher>
-</subject>
-<subject>
-	<time>17:44</time>
-    <name>Операционные системы</name>
-    <type>Лекция</type>
-	<teacher>Ларина Б.В.</teacher>
-</subject>
-</day>
+<products>
+<product>
+    <name>iPhone 8</name>
+    <price>4567</price>
+</product>
+<product>
+    <name>Galaxy S 9</name>
+    <price>8767</price>
+</product>
+<product>
+    <name>Pixel 2</name>
+    <price>3577</price>
+</product>
+</products>
