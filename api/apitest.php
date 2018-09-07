@@ -2,7 +2,7 @@
 
 class apitest extends apiBaseClass {
 
-    //http://www.example.com/api/?apitest.helloAPI={}
+    //https://rootmen.github.io/api/?apitest.helloAPI={}
     function helloAPI() {
         $retJSON = $this->createDefaultJson();
         $retJSON->withoutParams = 'It\'s method called without parameters';
