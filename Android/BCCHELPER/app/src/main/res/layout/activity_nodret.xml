@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".match.DM$NOD">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="B"
+            app:layout_constraintBottom_toBottomOf="@+id/Brettext"
+            app:layout_constraintEnd_toStartOf="@+id/Brettext"
+            app:layout_constraintTop_toTopOf="@+id/Brettext" />
+
+        <EditText
+            android:id="@+id/Brettext"
+            android:layout_width="105dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="@+id/Arettext"
+            app:layout_constraintStart_toStartOf="@+id/Arettext"
+            app:layout_constraintTop_toBottomOf="@+id/Arettext" />
+
+        <EditText
+            android:id="@+id/Arettext"
+            android:layout_width="105dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/A"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:text="A"
+            app:layout_constraintBottom_toBottomOf="@+id/Arettext"
+            app:layout_constraintEnd_toStartOf="@+id/Arettext"
+            app:layout_constraintTop_toTopOf="@+id/Arettext" />
+
+        <Button
+            android:id="@+id/NODretStart"
+            android:layout_width="148dp"
+            android:layout_height="74dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:text="Обратный ход  НОДА"
+            app:layout_constraintBottom_toBottomOf="@+id/Arettext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/Arettext"
+            app:layout_constraintTop_toTopOf="@+id/Arettext"
+            app:layout_constraintVertical_bias="0.47" />
+
+        <TextView
+            android:id="@+id/NODretq"
+            android:layout_width="0dp"
+            android:layout_height="361dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:text="TextView"
+            android:scrollbars = "vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Brettext" />
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.design.widget.CoordinatorLayout>

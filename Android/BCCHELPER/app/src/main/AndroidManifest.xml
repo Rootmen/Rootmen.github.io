@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.rootmen.bcchelper">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".Menu">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".match.DM"
+            android:label="@string/title_activity_dm"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".shem.ttl"
+            android:label="@string/title_activity_ttl"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".shem.ttl$ttl1"
+            android:label="@string/title_activity_ttl1"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".shem.ttl$ttl2"
+            android:label="@string/title_activity_ttl2"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".avtomat.TAVT"
+            android:label="@string/title_activity_tavt"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".match.DM$NOD"
+            android:label="@string/title_activity_nod"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".match.DM$NODret"
+            android:label="@string/title_activity_nodret"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".match.DM$matriksObrt"
+            android:label="@string/title_activity_matriks_obrt"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".menu.Sup"
+            android:label="@string/title_activity_sup"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".avtomat.buli.Bule"
+            android:label="@string/title_activity_bule"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".match.KitTeor"
+            android:label="@string/title_activity_kit_teor"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".match.KolObrt"
+            android:label="@string/title_activity_kol_obrt"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".match.NodMnog"
+            android:label="@string/title_activity_nod_mnog"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".shem.ObrtRiad"
+            android:label="@string/title_activity_obrt_riad"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+    </application>
+
+</manifest>

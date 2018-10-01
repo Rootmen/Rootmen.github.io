@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".match.DM$NOD">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:text="B"
+            app:layout_constraintBottom_toBottomOf="@+id/Btext"
+            app:layout_constraintEnd_toStartOf="@+id/Btext"
+            app:layout_constraintTop_toTopOf="@+id/Btext"
+            app:layout_constraintVertical_bias="0.6" />
+
+        <EditText
+            android:id="@+id/Btext"
+            android:layout_width="103dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/Atext"
+            android:layout_width="105dp"
+            android:layout_height="46dp"
+            android:layout_marginTop="32dp"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="@+id/Btext"
+            app:layout_constraintStart_toStartOf="@+id/Btext"
+            app:layout_constraintTop_toBottomOf="@+id/Btext" />
+
+        <TextView
+            android:id="@+id/A"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="A"
+            app:layout_constraintBottom_toBottomOf="@+id/Atext"
+            app:layout_constraintEnd_toStartOf="@+id/Atext"
+            app:layout_constraintTop_toTopOf="@+id/Atext" />
+
+        <Button
+            android:id="@+id/NODstart"
+            android:layout_width="125dp"
+            android:layout_height="74dp"
+            android:layout_marginEnd="44dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:text="Нахождение НОДА"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/Btext"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/NODq"
+            android:layout_width="0dp"
+            android:layout_height="361dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="TextView"
+            android:scrollbars = "vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Atext" />
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.design.widget.CoordinatorLayout>

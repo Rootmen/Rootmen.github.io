@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".match.DM$matriksObrt">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/m8"
+            android:layout_width="44dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintStart_toEndOf="@+id/m1"
+            app:layout_constraintTop_toBottomOf="@+id/m4" />
+
+        <EditText
+            android:id="@+id/m9"
+            android:layout_width="44dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintStart_toEndOf="@+id/m5"
+            app:layout_constraintTop_toTopOf="@+id/m8" />
+
+        <EditText
+            android:id="@+id/m7"
+            android:layout_width="44dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintStart_toStartOf="@+id/m4"
+            app:layout_constraintTop_toBottomOf="@+id/m4" />
+
+        <EditText
+            android:id="@+id/m4"
+            android:layout_width="44dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintStart_toStartOf="@+id/m1"
+            app:layout_constraintTop_toBottomOf="@+id/m1" />
+
+        <EditText
+            android:id="@+id/m3"
+            android:layout_width="44dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintStart_toEndOf="@+id/m2"
+            app:layout_constraintTop_toTopOf="@+id/m2" />
+
+        <EditText
+            android:id="@+id/m2"
+            android:layout_width="44dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintStart_toEndOf="@+id/m1"
+            app:layout_constraintTop_toTopOf="@+id/m1" />
+
+        <EditText
+            android:id="@+id/m5"
+            android:layout_width="44dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintStart_toEndOf="@+id/m1"
+            app:layout_constraintTop_toBottomOf="@+id/m1" />
+
+        <EditText
+            android:id="@+id/m6"
+            android:layout_width="44dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintStart_toEndOf="@+id/m5"
+            app:layout_constraintTop_toBottomOf="@+id/m1" />
+
+        <EditText
+            android:id="@+id/m1"
+            android:layout_width="44dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintStart_toEndOf="@+id/lokic"
+            app:layout_constraintTop_toBottomOf="@+id/Матрица" />
+
+        <CheckBox
+            android:id="@+id/lokic"
+            android:layout_width="141dp"
+            android:layout_height="39dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Поменять местами A и B"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TextType" />
+
+        <TextView
+            android:id="@+id/TextType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="A*B=0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/Матрица"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text=" Матрица A"
+            app:layout_constraintStart_toStartOf="@+id/m1"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/Go"
+            android:layout_width="116dp"
+            android:layout_height="74dp"
+            android:layout_marginEnd="8dp"
+            android:text="Найти матрицу B"
+            app:layout_constraintEnd_toEndOf="@+id/lokic"
+            app:layout_constraintStart_toStartOf="@+id/lokic"
+            app:layout_constraintTop_toBottomOf="@+id/lokic" />
+
+        <TextView
+            android:id="@+id/Textq"
+            android:layout_width="0dp"
+            android:layout_height="407dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:scrollbars="vertical"
+            android:text="Ответ"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/m8" />
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.design.widget.CoordinatorLayout>

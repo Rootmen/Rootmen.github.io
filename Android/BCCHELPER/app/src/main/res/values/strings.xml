@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">ВСС\nHelper</string>
+    <string name="_1">ТТЛ1</string>
+    <string name="_2">ТТЛ2</string>
+    <string name="r1">R1</string>
+    <string name="rk">Rk</string>
+    <string name="u0">U0</string>
+    <string name="u1">U1</string>
+    <string name="bt2">bt2</string>
+    <string name="title_activity_tavt">tavt</string>
+    <string name="title_activity_ttl">ttl</string>
+    <string name="title_activity_ttl1">ttl1</string>
+    <string name="title_activity_ttl2">ttl2</string>
+    <string name="title_activity_menu">Menu</string>
+    <string name="title_activity_dm">DM</string>
+    <string name="title_activity_nod">nod</string>
+    <string name="title_activity_nodret">NODret</string>
+    <string name="title_activity_matriks_obrt">matriksObrt</string>
+    <string name="title_activity_sup">Sup</string>
+    <string name="title_activity_bule">Bule</string>
+    <string name="title_activity_kit_teor">KitTeor</string>
+    <string name="mod">\? mod</string>
+    <string name="title_activity_kol_obrt">KolObrt</string>
+    <string name="title_activity_nod_mnog">NodMnog</string>
+    <string name="title_activity_obrt_riad">ObrtRiad</string>
+</resources>
