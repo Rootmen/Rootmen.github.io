@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#09C"
+    android:padding="@dimen/widget_margin">
+
+    <TextView
+        android:id="@+id/QW5"
+        android:layout_width="340dp"
+        android:layout_height="43dp"
+        android:layout_below="@+id/QW4"
+        android:layout_centerHorizontal="true"
+        android:text="Информация о паре" />
+
+    <TextView
+        android:id="@+id/QW6"
+        android:layout_width="340dp"
+        android:layout_height="43dp"
+        android:layout_below="@+id/QW5"
+        android:layout_centerHorizontal="true"
+        android:text="Информация о паре" />
+
+    <TextView
+        android:id="@+id/QW4"
+        android:layout_width="340dp"
+        android:layout_height="43dp"
+        android:layout_below="@+id/QW3"
+        android:layout_centerHorizontal="true"
+        android:text="Информация о паре" />
+
+    <TextView
+        android:id="@+id/QW2"
+        android:layout_width="340dp"
+        android:layout_height="43dp"
+        android:layout_below="@+id/QW1"
+        android:layout_centerHorizontal="true"
+        android:text="Информация о паре" />
+
+    <TextView
+        android:id="@+id/QW3"
+        android:layout_width="340dp"
+        android:layout_height="43dp"
+        android:layout_below="@+id/QW2"
+        android:layout_centerHorizontal="true"
+        android:text="Информация о паре" />
+
+    <TextView
+        android:id="@+id/QWtime"
+        android:layout_width="118dp"
+        android:layout_height="38dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/QWtimeInfo"
+        android:layout_marginStart="20dp"
+        android:text="Время до ближайще пары" />
+
+    <TextView
+        android:id="@+id/QWtimeInfo"
+        android:layout_width="193dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="8dp"
+        android:text="Информация о паре" />
+
+    <TextView
+        android:id="@+id/QW1"
+        android:layout_width="340dp"
+        android:layout_height="43dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="79dp"
+        android:text="Информация о паре" />
+</RelativeLayout>

@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.rootmen.bcchelper">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,13 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Menu">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity
+            android:name=".Menu"
+            android:label="@string/title_activity_menu"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".match.DM"
             android:label="@string/title_activity_dm"
@@ -71,6 +71,38 @@
         <activity
             android:name=".shem.ObrtRiad"
             android:label="@string/title_activity_obrt_riad"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <receiver android:name=".CalendarW">
+            <intent-filter>
+                <action android:name="MY_PACKAGE_NAME.WIDGET_BUTTON" />
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="ru.example.android.widget.ACTION_WIDGET_RECEIVER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/calendat_info" />
+        </receiver>
+
+        <service
+            android:name=".ServiceW"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name=".StartActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".EVM.EVMLB1"
+            android:label="@string/title_activity_evmlb1"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

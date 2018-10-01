@@ -50,7 +50,7 @@ public class Sup extends AppCompatActivity implements SurfaceHolder.Callback,Vie
         TextView textView =findViewById(R.id.Telega);
 
         //Экранируем кавычки в атрибуте html тега слэшем:
-        String textWithLink = "Актуальная версия всегда в телеграмме <a href=\"https://t.me/Rootmen_Support\">https://t.me/Rootmen_Support</a>";
+        String textWithLink = "Актуальная версия всегда в гибхабе <a href=\"https://rootmen.github.io\">https://rootmen.github.io</a>";
 //Указываем с помощью Html.fromHtml, что у нас не просто текст:
         textView.setText(Html.fromHtml(textWithLink, null, null));
 ////Указываем что разрешаем ссылки кликать:

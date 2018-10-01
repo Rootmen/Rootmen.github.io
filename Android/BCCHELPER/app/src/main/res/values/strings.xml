@@ -23,4 +23,8 @@
     <string name="title_activity_kol_obrt">KolObrt</string>
     <string name="title_activity_nod_mnog">NodMnog</string>
     <string name="title_activity_obrt_riad">ObrtRiad</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="title_activity_start">StartActivity</string>
+    <string name="title_activity_evmlb1">EVMLB1</string>
 </resources>
