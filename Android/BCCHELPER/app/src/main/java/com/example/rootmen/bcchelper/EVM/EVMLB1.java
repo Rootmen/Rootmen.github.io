@@ -186,7 +186,7 @@ public class EVMLB1 extends AppCompatActivity {
         else if (MKi == 14) {
             MkText = MkText + "\nМК-14";
             MkText = MkText + "\n       PrA=(Хранение, выдача на Шн.д)=" + toHex(PrA);
-            MkText = MkText + "\n       PrB=(Сдвиг вправо(не увеерен что правильно))=" +toHex(PrB >> 2);
+            MkText = MkText + "\n       PrB=(Сдвиг вправо(не увеерен что правильно))=" +toHex(PrB >> 1);
 
             MkText = MkText + "\n       PrC=(AЛУ)=PrA+PrB=" + toHex(PrA-PrB-1);
                     PrC=PrA-PrB-1;
@@ -196,7 +196,7 @@ public class EVMLB1 extends AppCompatActivity {
         else if (MKi == 15) {
             MkText = MkText + "\nМК-15";
             MkText = MkText + "\n       PrA=(Хранение)=" + toHex(PrA);
-            MkText = MkText + "\n       PrB=(Сдвиг вправо(не увеерен что правильно))=" +toHex(PrB >> 2);
+            MkText = MkText + "\n       PrB=(Сдвиг вправо(не увеерен что правильно))=" +toHex(PrB >> 1);
 
             MkText = MkText + "\n       PrC=(AЛУ)=PrD+PrB=" + toHex(PrD+PrB);
             PrC=PrD+PrB;
@@ -204,7 +204,7 @@ public class EVMLB1 extends AppCompatActivity {
             PrB = PrB >> 1;
         }
         else if (MKi == 16) {
-            MkText = MkText + "\nМК-16 не поддерживаеться";
+            MkText = MkText + "\nМК-16 не поддерживается(До сих пор)";
             return false;
         }
         else if (MKi == 17) {
@@ -226,18 +226,13 @@ public class EVMLB1 extends AppCompatActivity {
             MkText = MkText + "\n       PrD=(Хранение, выдача на Шн.д)=" + toHex(PrD);
         }
         else if (MKi == 19) {
-            MkText = MkText + "\nМК-15";
+            MkText = MkText + "\nМК-19";
             MkText = MkText + "\n       PrA=(Хранение)=" + toHex(PrA);
-            MkText = MkText + "\n       PrB=(Сдвиг вправо(не увеерен что правильно))=" +toHex(PrB >> 2);
-
-            MkText = MkText + "\n       PrC=(AЛУ)=PrD+PrB=" + toHex(PrD+PrB);
-            PrC=PrD+PrB;
+            MkText = MkText + "\n       PrB=(Сдвиг лево(не увеерен что правильно))=" +toHex(PrB << 1);
+            MkText = MkText + "\n       PrC=(AЛУ)=PrС+PrB+1=" + toHex(PrC+PrB+1);
+            PrC=PrC+PrB;
             MkText = MkText + "\n       PrD=(Хранение, выдача на Шн.д)=" + toHex(PrD);
             PrB = PrB << 1;
-            String B2=Integer.toBinaryString(PrB);
-            String B3="";
-            for(int g=0;g<8&&g<B2.length();g++) B3=B3+B2.charAt(g);
-            PrB=Integer.parseInt(B2,2);
         }
         return true;
     }
