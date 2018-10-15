@@ -204,7 +204,7 @@ public class EVMLB1 extends AppCompatActivity {
             PrB = PrB >> 1;
         }
         else if (MKi == 16) {
-            MkText = MkText + "\nМК-16 не поддерживается(До сих пор)";
+            MkText = MkText + "\nМК-16 не поддерживаетсяfg(До сих пор)";
             return false;
         }
         else if (MKi == 17) {

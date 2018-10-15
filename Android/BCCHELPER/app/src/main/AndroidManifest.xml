@@ -103,6 +103,10 @@
         <activity
             android:name=".EVM.EVMLB1"
             android:label="@string/title_activity_evmlb1"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".EVM.EVMLB2"
+            android:label="@string/title_activity_evmlb2"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
