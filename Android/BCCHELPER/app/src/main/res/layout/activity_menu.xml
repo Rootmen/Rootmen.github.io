@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -30,9 +31,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="24dp"
-            android:text="ЭВМ"
+            android:layout_marginTop="20dp"
+            android:text="ЭВМ1"
             app:layout_constraintEnd_toEndOf="@+id/startMatch"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/startMatch"
             app:layout_constraintTop_toBottomOf="@+id/startMatch" />
 
@@ -61,6 +63,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.8"
             app:layout_constraintStart_toEndOf="@+id/startAVTOMAT" />
+
+        <Button
+            android:id="@+id/startAVTOMAT2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="ЭВМ2"
+            app:layout_constraintEnd_toEndOf="@+id/startAVTOMAT"
+            app:layout_constraintStart_toStartOf="@+id/startAVTOMAT"
+            app:layout_constraintTop_toBottomOf="@+id/startAVTOMAT" />
     </android.support.constraint.ConstraintLayout>
 
 </RelativeLayout>

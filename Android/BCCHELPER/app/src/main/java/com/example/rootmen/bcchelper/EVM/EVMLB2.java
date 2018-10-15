@@ -16,7 +16,7 @@ import com.example.rootmen.bcchelper.R;
 public class EVMLB2 extends AppCompatActivity {
         private int Pr[] = new int[16];
         private String MkText="";
-        private int j=0,k=0,i=0;
+        private int j=0,k=0,i=0,PQ=0,D1=0,D2=0;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -43,6 +43,11 @@ public class EVMLB2 extends AppCompatActivity {
                 j=Integer.parseInt((((EditText)findViewById(R.id.EVMLB2_J)).getText().toString()));
                 k=Integer.parseInt((((EditText)findViewById(R.id.EVMLB2_k)).getText().toString()));
                 i=Integer.parseInt((((EditText)findViewById(R.id.EVMLB2_I)).getText().toString()));
+                PQ=Integer.parseInt((((EditText)findViewById(R.id.EVMLB2_PQ)).getText().toString()));
+                D1=Integer.parseInt((((EditText)findViewById(R.id.EVMLB2_D1)).getText().toString()));
+                D2=Integer.parseInt((((EditText)findViewById(R.id.EVMLB2_D2)).getText().toString()));
+
+
             }catch (Exception My){
                 if(Qtext!=null)  Qtext.setText("Ошибка при чтении данных проверьте правильности и последовательность МК и данных");
             }
@@ -53,6 +58,18 @@ public class EVMLB2 extends AppCompatActivity {
                     MkText=MkText+"\nНа этом этапе что-то пошло не так проверьте введенные данные!!";
                     break;
                 }
+                for(int p=0;p<16;p++){
+                    MkText = MkText + "\nPr"+p+"="+Integer.toBinaryString(Pr[p]);
+                    if(Pr[p]<=15) continue;
+                    String Pri=Integer.toBinaryString(Pr[p]);
+                    String Pri1="";
+                    for(int f=0;f<3;f++){
+                        Pri1=Pri.charAt(f)+Pri1;
+                    }
+                    Pr[p]=Integer.parseInt(Pri1,2);
+                }
+
+
             }
             Qtext.setText(MkText);
         }
@@ -82,113 +99,105 @@ public class EVMLB2 extends AppCompatActivity {
             }
             else if (MKi == 3) {
                 MkText = MkText + "\nМК-3";
-                MkText = MkText + "\n       PrA=Шине входа=" + toHex(B);
-                PrA=B;
-                MkText = MkText + "\n       PrB=(Прием данных с Шн.Д)="+toHex(PrD);
-                if(PrD==null){  MkText = MkText + "\n PrD - Шина данных еще не опредлена"; return false; }
-                PrB = PrD;
-                MkText = MkText + "\n       PrС=(Хранение)=" + toHex(PrC);
-                MkText = MkText + "\n       PrD=Шине Данных, выдает даные которые хранились раньше на Шн.д=" + toHex(B);
-                PrD = B;
+                MkText = MkText + "\n       Pr"+i+"=Pr"+i+"<<PQ<<0";
+                String Pri=Integer.toBinaryString(Pr[i]);
+                String PQs=Integer.toBinaryString(PQ);
+                String Pri1="",Pri2="";
+                Pri=Pri+PQs.charAt(3);
+                PQs=PQs+"0";
+                for(int g=0;g<4&&g<Pri.length();g++) Pri1=Pri.charAt(g)+Pri1;
+                for(int g=0;g<4&&g<PQs.length();g++) Pri2=PQs.charAt(g)+Pri2;
+
+                Pr[i]=Integer.parseInt(Pri1,2);
+                PQ=Integer.parseInt(Pri2,2);
+                MkText = MkText + "\n       Pr"+j+"="+toHex(Pr[j]);
+
+                MkText = MkText + "\n       PQ="+toHex(PQ);
             }
             else if (MKi == 4) {
                 MkText = MkText + "\nМК-4";
-                MkText = MkText + "\n       PrA=(Хранение)=" + toHex(PrA);
-                MkText = MkText + "\n       PrB=(Обнулился)=" + 0;
-                PrB = new Integer(0);
-                MkText = MkText + "\n       PrС=(Хранение)=" + toHex(PrC);
-                MkText = MkText + "\n       PrD=Шине Данных=" + toHex(B);
-                PrD = B;
+                MkText = MkText + "\n       Pr"+k+"=R+S+Co=1>>PQ";
+                String PQs=Integer.toBinaryString(PQ);
+                String Pri1="";
+                for(int g=0;g<3;g++){
+                    Pri1=PQs.charAt(g)+Pri1;
+                }
+                Pri1="1"+Pri1;
+                PQ=Integer.parseInt(Pri1,2);
+                Pr[k]=Integer.parseInt(Pri1,2);
+                MkText = MkText + "\n       Pr"+k+"="+toHex(Pr[k]);
+
+                MkText = MkText + "\n       PQ="+toHex(PQ);
             }
             else if (MKi == 5) {
                 MkText = MkText + "\nМК-5";
-                MkText = MkText + "\n       PrA=Шине Данных=" + toHex(B);
-                PrA=B;
-                MkText = MkText + "\n       PrB=(Прием данных с Шн.Д)="+toHex(PrD);
-                if(PrD==null){  MkText = MkText + "\n PrD - Шина данных еще не опредлена"; return false; }
-                MkText = MkText + "\n       PrС=(Хранение)=" + toHex(PrC);
-                MkText = MkText + "\n       PrD=(Хранение, выдача на Шн.д)=" + toHex(PrD);
+                MkText = MkText + "\n       Pr"+i+"=Rr"+i+"+"+D1+"="+toHex(Pr[i]+D1);
+                Pr[i]=Pr[i]+D1;
             }
             else if (MKi == 6) {
                 MkText = MkText + "\nМК-6";
-                MkText = MkText + "\n       PrA=(Хранение, выдача на Шн.д)=" + toHex(PrA);
-                MkText = MkText + "\n       PrB=(Обнулился)=" + 0;
-                PrB = new Integer(0);
-                MkText = MkText + "\n       PrC=(Прием с АЛУ)=ИНВЕРСИЯ A=" + toHex(~PrA);
-                PrC=~PrA;
-                MkText = MkText + "\n       PrD=Шине входа=" + toHex(B);
-                PrD=B;
+                MkText = MkText + "\n       Pr"+j+"=Pr"+j+"-"+D1+"-1+1="+toHex(Pr[i]-D1);
+                Pr[i]=Pr[i]-D1;
             }
             else if (MKi == 7) {
                 MkText = MkText + "\nМК-7";
-                MkText = MkText + "\n       PrA=(Хранение)=" + toHex(PrA);
-                MkText = MkText + "\n       PrB=(Прием данных с Шн.Д)="+toHex(PrD);;
-                PrB = PrD;
-                MkText = MkText + "\n       PrC=(Хранение)=" + toHex(PrC);
-                MkText = MkText + "\n       PrD=(Хранение, выдача на Шн.д)=" + toHex(PrD);
+                MkText = MkText + "\n       Pr"+j+"=Pr"+j+"+"+"Pr"+i+"="+toHex(Pr[i]+Pr[j]);
+                Pr[j]=Pr[i]+Pr[j];
             }
             else if (MKi == 8) {
                 MkText = MkText + "\nМК-8";
-                MkText = MkText + "\n       PrA=(Хранение)=" + toHex(PrA);
-                MkText = MkText + "\n       PrB=(Хранение)=" +toHex(PrB);
-                MkText = MkText + "\n       PrC=(PrC-PrB-1)=" + toHex(PrC-PrB-1);
-                PrC=PrC-PrB-1;
-                MkText = MkText + "\n       PrD=(Хранение, выдача на Шн.д)=" + toHex(PrD);
+                MkText = MkText + "\n       Pr"+i+"=Pr"+i+"<<1";
+                String PRi=Integer.toBinaryString(PQ);
+                String Pri1="";
+                for(int g=0;g<3;g++){
+                    Pri1=PRi.charAt(g)+Pri1;
+                }
+                Pri1=Pri1+"1";
+                Pr[i]=Integer.parseInt(Pri1,2);
+                MkText = MkText + "\n       Pr"+i+"="+toHex(Pr[i]);
             }
             else if (MKi == 9) {
                 MkText = MkText + "\nМК-9";
-                MkText = MkText + "\n       PrA=(Хранение)=" + toHex(PrA);
-                MkText = MkText + "\n       PrB=(Хранение)=" +toHex(PrB);
-                MkText = MkText + "\n       PrC=(PrC+PrB+1)=" + toHex(PrC+PrB+1);
-                PrC=PrC+PrB+1;
-                MkText = MkText + "\n       PrD=(Хранение, выдача на Шн.д)=" + toHex(PrD);
+                MkText = MkText + "\n       Pr"+i+"=0>>Pr"+i+">>PQ";
+                String Pri=Integer.toBinaryString(Pr[i]);
+                String PQs=Integer.toBinaryString(PQ);
+                PQs=Pri.charAt(0)+PQs;
+                String Pri1="",Pri2="";
+                for(int g=0;g<4;g++) Pri2=PQs.charAt(g)+Pri2;
+                for(int g=1;g<4;g++) Pri1=Pri.charAt(g)+Pri1;
+                Pri1="0"+Pri1;
+                Pr[i]=Integer.parseInt(Pri1,2);
+                PQ=Integer.parseInt(Pri2,2);
             }
             else if (MKi == 10) {
                 MkText = MkText + "\nМК-10";
-                MkText = MkText + "\n       PrA=(Хранение)=" + toHex(PrA);
-                MkText = MkText + "\n       PrB=(Шина данных)=" +toHex(PrC);
-                PrB=PrC;
-                MkText = MkText + "\n       PrC=(Хранение, выдача на Шн.д)=" + toHex(PrC);
-                MkText = MkText + "\n       PrD=(Хранение)=" + toHex(PrD);
+                MkText = MkText + "\n       Pr"+i+"=|(Pr"+i+"^0)="+toHex(~(Pr[i]^0));
+                Pr[i]=~(Pr[i]^0);
             }
             else if (MKi == 11) {
                 MkText = MkText + "\nМК-11";
-                MkText = MkText + "\n       PrA=(Хранение)=" + toHex(PrA);
-                MkText = MkText + "\n       PrB=(Хранение)=" +toHex(PrC);
-                MkText = MkText + "\n       PrC=(Хранение, выдача на Шн.д)=" + toHex(PrC);
-                MkText = MkText + "\n       PrD=(Хранение)=" + toHex(PrD);
+                MkText = MkText + "\n       Pr7=Pr"+i+"|Pr7)="+toHex(Pr[i]|Pr[7]);
+                Pr[7]=Pr[i]|Pr[7];
             }
             else if (MKi == 12) {
                 MkText = MkText + "\nМК-12";
-                MkText = MkText + "\n       PrA=(Хранение, выдача на Шн.д)=" + toHex(PrA);
-                MkText = MkText + "\n       PrB=(Хранение)=" +toHex(PrC);
-                MkText = MkText + "\n       PrC=(AЛУ)=PrA+PrB+1=" + toHex(PrA+PrB+1);
-                PrC=PrA+PrB+1;
-                MkText = MkText + "\n       PrD=(Хранение)=" + toHex(PrD);
+                MkText = MkText + "\n       Pr8=|(Pr"+i+"^Pr8)="+toHex(~(Pr[i]^Pr[8]));
+                Pr[8]=~(Pr[i]^Pr[8]);
             }
             else if (MKi == 13) {
                 MkText = MkText + "\nМК-13";
-                MkText = MkText + "\n       PrA=(Хранение, выдача на Шн.д)=" + toHex(PrA);
-                MkText = MkText + "\n       PrB=(Сдвиг вправо(не увеерен что правильно))=" +toHex(PrB >> 1);
-
-                MkText = MkText + "\n       PrC=(AЛУ)=PrA+PrB=" + toHex(PrA-PrB-1);
-                PrC=PrA-PrB-1;
-                MkText = MkText + "\n       PrD=(Хранение)=" + toHex(PrD);
-                PrB = PrB >> 1;
+                MkText = MkText + "\n       Pr8=Pr8|Pr7="+toHex(Pr[8]|Pr[7]);
+                Pr[8]=Pr[7]|Pr[8];
             }
             else if (MKi == 14) {
                 MkText = MkText + "\nМК-14";
-                MkText = MkText + "\n       PrA=(Хранение)=" + toHex(PrA);
-                MkText = MkText + "\n       PrB=(Сдвиг вправо(не увеерен что правильно))=" +toHex(PrB >> 1);
-
-                MkText = MkText + "\n       PrC=(AЛУ)=PrD+PrB=" + toHex(PrD+PrB);
-                PrC=PrD+PrB;
-                MkText = MkText + "\n       PrD=(Хранение, выдача на Шн.д)=" + toHex(PrD);
-                PrB = PrB >> 1;
+                MkText = MkText + "\n       Pr"+j+"=Pr"+j+"&Pr[8])="+toHex(Pr[j]&Pr[8]);
+                Pr[j]=Pr[j]&Pr[8];
             }
             else if (MKi == 15) {
-                MkText = MkText + "\nМК-15 не поддерживаетсяfg(До сих пор)";
-                return false;
+                MkText = MkText + "\nМК-15";
+                MkText = MkText + "\n       Pr"+j+"=|(Pr"+j+"^0)="+toHex(~(Pr[j]^0));
+                Pr[j]=~(Pr[j]^0);
             }
             return true;
         }

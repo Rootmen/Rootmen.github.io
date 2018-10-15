@@ -23,6 +23,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.rootmen.bcchelper.EVM.EVMLB1;
+import com.example.rootmen.bcchelper.EVM.EVMLB2;
 import com.example.rootmen.bcchelper.avtomat.TAVT;
 import com.example.rootmen.bcchelper.match.DM;
 import com.example.rootmen.bcchelper.menu.Sup;
@@ -58,6 +59,14 @@ public class Menu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Menu.this, EVMLB1.class);
+                startActivity(intent);
+            }
+        });
+        Button startAVTOMAT2 = findViewById(R.id.startAVTOMAT2);
+        startAVTOMAT2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Menu.this, EVMLB2.class);
                 startActivity(intent);
             }
         });
