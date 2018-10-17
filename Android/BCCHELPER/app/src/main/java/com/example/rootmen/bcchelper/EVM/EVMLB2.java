@@ -89,8 +89,8 @@ public class EVMLB2 extends AppCompatActivity {
             }
             else if (MKi == 1) {
                 MkText = MkText + "\nМК-1";
-                MkText = MkText + "\n       Pr"+j+"=R+S+Co=0+"+"Pr"+i+"+1="+toHex(Pr[j]);
-                Pr[i]=Pr[j];
+                MkText = MkText + "\n       Pr"+j+"=R+S+Co=0+"+"Pr"+j+"="+toHex(Pr[j]);
+                Pr[j]=Pr[j];
             }
             else if (MKi == 2) {
                 MkText = MkText + "\nМК-2";
@@ -103,7 +103,8 @@ public class EVMLB2 extends AppCompatActivity {
                 String Pri=Integer.toBinaryString(Pr[i]);
                 String PQs=Integer.toBinaryString(PQ);
                 String Pri1="",Pri2="";
-                Pri=Pri+PQs.charAt(3);
+                if(PQs.length()>3) Pri=Pri+PQs.charAt(3);
+                else Pri=Pri+"0";
                 PQs=PQs+"0";
                 for(int g=0;g<4&&g<Pri.length();g++) Pri1=Pri.charAt(g)+Pri1;
                 for(int g=0;g<4&&g<PQs.length();g++) Pri2=PQs.charAt(g)+Pri2;

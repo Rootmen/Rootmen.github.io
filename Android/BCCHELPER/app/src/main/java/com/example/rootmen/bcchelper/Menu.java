@@ -70,6 +70,7 @@ public class Menu extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        startAVTOMAT2.setVisibility(View.INVISIBLE);
         ImageView imag = findViewById(R.id.logo);
         imag.setClickable(true);
         imag.setOnClickListener(new View.OnClickListener() {
