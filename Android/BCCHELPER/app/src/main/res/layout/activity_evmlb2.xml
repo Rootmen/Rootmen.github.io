@@ -26,6 +26,7 @@
             android:layout_width="44dp"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:inputType="number"
             app:layout_constraintBottom_toBottomOf="@+id/textView34"
             app:layout_constraintStart_toEndOf="@+id/textView34"
             app:layout_constraintTop_toTopOf="@+id/textView34" />
