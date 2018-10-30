@@ -69,23 +69,37 @@ public class EVMLB2 extends AppCompatActivity {
                 MkText = MkText + "\nМК-0";
                 Pr[i]=Pr[i]+1;
                 Correct_Registry();
-                MkText = MkText + "\n       Pr"+i+"=R+S+Co=0+Pr"+i+"+0+1="+toHex(Pr[i]);
+                MkText = MkText + "\n       B=Pr"+i+" A=Pr"+i;
+                MkText = MkText + "\n       C0=1";
+                MkText = MkText + "\n       Функция выполняема АЛУ     - код = (000) R+S+C0";
+                MkText = MkText + "\n       Источники операндов        - код = (100) R=A S=0";
+                MkText = MkText + "\n       Приемник результата из АЛУ - код = (011) F->B";
+                MkText = MkText + "\n       Pr"+i+"=R+S+Co=Pr"+i+"+0+1="+toHex(Pr[i]);
             }
             else if (MKi == 1) {
                 MkText = MkText + "\nМК-1";
                 Pr[j]=Pr[j];
                 Correct_Registry();
-                MkText = MkText + "\n       Pr"+j+"=R+S+Co=0+"+"Pr"+j+"+0+0="+toHex(Pr[j]);
+                MkText = MkText + "\n       B=Pr"+j+" A=Pr"+j;
+                MkText = MkText + "\n       C0=0";
+                MkText = MkText + "\n       Функция выполняема АЛУ     - код = (000) R+S+C0";
+                MkText = MkText + "\n       Источники операндов        - код = (100) R=A S=0";
+                MkText = MkText + "\n       Приемник результата из АЛУ - код = (011) F->B";
+                MkText = MkText + "\n       Pr"+j+"=R+S+Co=Pr"+j+"+0+0="+toHex(Pr[j]);
             }
             else if (MKi == 2) {
                 MkText = MkText + "\nМК-2";
                 Pr[j]=Pr[j]+Pr[i];
                 Correct_Registry();
+                MkText = MkText + "\n       B=Pr"+j+" A=Pr"+i;
+                MkText = MkText + "\n       C0=0";
+                MkText = MkText + "\n       Функция выполняема АЛУ     - код = (000) R+S+C0";
+                MkText = MkText + "\n       Источники операндов        - код = (001) R=A S=B";
+                MkText = MkText + "\n       Приемник результата из АЛУ - код = (011) F->B";
                 MkText = MkText + "\n       Pr"+j+"=R+S+Co=Pr"+i+"+Pr"+j+"+0="+toHex(Pr[j]);
             }
             else if (MKi == 3) {
                 MkText = MkText + "\nМК-3";
-                MkText = MkText + "\n       Pr"+i+"=Pr"+i+"<<PQ<<0";
                 String Pri=Integer.toBinaryString(Pr[i]);
                 String PQs=Integer.toBinaryString(PQ);
                 String Pri1="",Pri2="";
@@ -97,13 +111,17 @@ public class EVMLB2 extends AppCompatActivity {
                 Pr[i]=Integer.parseInt(Pri1,2);
                 PQ=Integer.parseInt(Pri2,2);
                 Correct_Registry();
+                MkText = MkText + "\n       B=Pr"+i+" A=Pr"+i;
+                MkText = MkText + "\n       C0=0";
+                MkText = MkText + "\n       Функция выполняема АЛУ     - код = (000) R+S+C0";
+                MkText = MkText + "\n       Источники операндов        - код = (100) R=0 S=A";
+                MkText = MkText + "\n       Приемник результата из АЛУ - код = (110) 2F->B (Сдвиг в лево) 2PQ->PQ (Сдвиг в лево)";
+                MkText = MkText + "\n       Сдвиг проходит по схеме Pr"+i+"<<PQ<<0";
                 MkText = MkText + "\n       Pr"+i+"="+toHex(Pr[i]);
                 MkText = MkText + "\n       PQ="+toHex(PQ);
             }
             else if (MKi == 4) {
                 MkText = MkText + "\nМК-4";
-                MkText = MkText + "\n       Pr"+k+"=R+S+Co=0+PQ+0";
-
                 String PQs=Integer.toBinaryString(PQ);
                 String Pri1="";
                 while(PQs.length()<4) PQs = "0" + PQs;
@@ -112,31 +130,53 @@ public class EVMLB2 extends AppCompatActivity {
                 PQ=Integer.parseInt(Pri1,2);
                 Pr[k]=Integer.parseInt(Pri1,2);
                 Correct_Registry();
-                MkText = MkText + "\n       Pr"+k+"=1>>Pr"+k+"="+toHex(Pr[k]);
-                MkText = MkText + "\n       PQ=1>>PQ="+toHex(PQ);
+                MkText = MkText + "\n       B=Pr"+k+" A=-";
+                MkText = MkText + "\n       C0=0";
+                MkText = MkText + "\n       Функция выполняема АЛУ     - код = (000) R+S+C0";
+                MkText = MkText + "\n       Источники операндов        - код = (010) R=0 S=PQ";
+                MkText = MkText + "\n       Приемник результата из АЛУ - код = (100) F/2->B (Сдвиг в право) PQ/2->PQ (Сдвиг в право)";
+                MkText = MkText + "\n       Сдвиг проходит по схеме 1>>Pr"+k+" 1>>PQ";
+                MkText = MkText + "\n       Pr"+k+"=PQ";
+                MkText = MkText + "\n       Результат после сдвигов";
+                MkText = MkText + "\n       Pr"+k+"="+toHex(Pr[k]);
+                MkText = MkText + "\n       PQ="+toHex(PQ);
             }
             else if (MKi == 5) {
                 MkText = MkText + "\nМК-5";
                 Pr[i]=Pr[i]+D1;
                 Correct_Registry();
-                MkText = MkText + "\n       Pr"+i+"=Rr"+i+"+"+D1+"="+toHex(Pr[i]);
+                MkText = MkText + "\n       B=Pr"+i+" A=Pr"+i;
+                MkText = MkText + "\n       C0=0 D="+toHex(D1);
+                MkText = MkText + "\n       Функция выполняема АЛУ     - код = (000) R+S+C0";
+                MkText = MkText + "\n       Источники операндов        - код = (101) R=D S=A";
+                MkText = MkText + "\n       Приемник результата из АЛУ - код = (011) F->B";
+                MkText = MkText + "\n       Pr"+i+"="+D1+"+Pr"+i+"+0="+toHex(Pr[i]);
             }
             else if (MKi == 6) {
                 MkText = MkText + "\nМК-6";
                 Pr[j]=Pr[j]-D2;
                 if(Pr[j]<0) Pr[j] = 16 + Pr[j];
                 Correct_Registry();
-                MkText = MkText +"\n       Pr"+j+"=Pr"+j+"-"+D2+"-1+1="+toHex(Pr[j]);
+                MkText = MkText + "\n       B=Pr"+j+" A=Pr"+j;
+                MkText = MkText + "\n       C0=1 D="+toHex(D2);
+                MkText = MkText + "\n       Функция выполняема АЛУ     - код = (001) S-R-1-C0";
+                MkText = MkText + "\n       Источники операндов        - код = (101) R=D S=A";
+                MkText = MkText + "\n       Приемник результата из АЛУ - код = (011) F->B";
+                MkText = MkText + "\n       Pr"+j+"=Pr"+j+"-"+D2+"-1+1="+toHex(Pr[j]);
             }
             else if (MKi == 7) {
                 MkText = MkText + "\nМК-7";
                 Pr[j]=Pr[i]+Pr[j];
                 Correct_Registry();
-                MkText = MkText + "\n       Pr"+j+"=Pr"+j+"+"+"Pr"+i+"="+toHex(Pr[j]);
+                MkText = MkText + "\n       B=Pr"+j+" A=Pr"+i;
+                MkText = MkText + "\n       C0=0";
+                MkText = MkText + "\n       Функция выполняема АЛУ     - код = (000) R+S+C0";
+                MkText = MkText + "\n       Источники операндов        - код = (001) R=A S=B";
+                MkText = MkText + "\n       Приемник результата из АЛУ - код = (011) F->B";
+                MkText = MkText + "\n       Pr"+j+"=Pr"+i+"+"+"Pr"+j+"="+toHex(Pr[j]);
             }
             else if (MKi == 8) {
                 MkText = MkText + "\nМК-8";
-                MkText = MkText + "\n       Pr"+i+"=Pr"+i+"<<1";
                 String PRi=Integer.toBinaryString(Pr[i]);
                 String Pri1="";
                 for(int g=PRi.length();g<4;g++){
@@ -147,7 +187,15 @@ public class EVMLB2 extends AppCompatActivity {
                     Pri1 = PRi.charAt(g) + Pri1;
                 Pr[i]=Integer.parseInt(Pri1,2);
                 Correct_Registry();
+                MkText = MkText + "\n       B=Pr"+i+" A=Pr"+i;
+                MkText = MkText + "\n       C0=0";
+                MkText = MkText + "\n       Функция выполняема АЛУ     - код = (000) R+S+C0";
+                MkText = MkText + "\n       Источники операндов        - код = (100) R=0 S=A";
+                MkText = MkText + "\n       Приемник результата из АЛУ - код = (111) 2F->B (Сдвиг в лево)";
+                MkText = MkText + "\n       Pr"+i+"=0+Pr"+i+"+0=";
+                MkText = MkText + "\n       Логика сдвига Pr"+i+"<<1";
                 MkText = MkText + "\n       Pr"+i+"="+toHex(Pr[i]);
+
             }
             else if (MKi == 9) {
                 MkText = MkText + "\nМК-9";
@@ -170,7 +218,7 @@ public class EVMLB2 extends AppCompatActivity {
             }
             else if (MKi == 10) {
                 MkText = MkText + "\nМК-10";
-                Pr[i]=~(Pr[i]);
+                Pr[i]=toUnver(Pr[i]);
                 MkText = MkText + "\n       Pr"+i+"=|(Pr"+i+"^0)="+toHex(Pr[i]);
             }
             else if (MKi == 11) {
@@ -180,8 +228,8 @@ public class EVMLB2 extends AppCompatActivity {
             }
             else if (MKi == 12) {
                 MkText = MkText + "\nМК-12";
-                Pr[9]=~(Pr[j]^Pr[9]);
-                MkText = MkText + "\n       Pr9=|(Pr"+i+"^Pr9)="+toHex(Pr[9]);
+                Pr[9]=toUnver(Pr[j]^Pr[9]);
+                MkText = MkText + "\n       Pr9=|(Pr"+j+"^Pr9)="+toHex(Pr[9]);
             }
             else if (MKi == 13) {
                 MkText = MkText + "\nМК-13";
@@ -195,18 +243,31 @@ public class EVMLB2 extends AppCompatActivity {
             }
             else if (MKi == 15) {
                 MkText = MkText + "\nМК-15";
-                Pr[j]=~(Pr[j]);
+                Pr[j]=toUnver(Pr[j]);
                 MkText = MkText + "\n       Pr"+j+"=|(Pr"+j+"^0)="+toHex(Pr[j]);
             }
             return true;
         }
 
 
-        String toHex(Integer Int){
-            if(Int==null) return "null";
-            return Integer.toString(Int,16);
+        Integer toUnver(Integer Int){
+            if(Int==null) return 0;
+            String IntT = Integer.toBinaryString(Int);
+            for(int g = IntT.length();g<4;g++ )
+                IntT="0"+IntT;
+            String Unver = "";
+            for(int g = 0;g<4;g++ )
+                if(IntT.charAt(g)== '0')
+                    Unver=Unver+"1";
+                else
+                    Unver=Unver+"0";
+            return Integer.parseInt(Unver,2);
         }
 
+        String toHex(Integer Int){
+            if(Int==null) return "null";
+            return Integer.toString(Int,16).toUpperCase();
+        }
 
         void Correct_Registry(){
             for(int p=0;p<16;p++){
