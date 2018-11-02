@@ -15,6 +15,8 @@ import android.widget.TextView;
 import com.example.rootmen.bcchelper.Menu;
 import com.example.rootmen.bcchelper.R;
 
+import static java.lang.Math.abs;
+
 public class EVMLB1 extends AppCompatActivity {
     Integer PrA, PrB, PrC, PrD;
     int A, B;
@@ -248,5 +250,23 @@ public class EVMLB1 extends AppCompatActivity {
             else
                 Unver = Unver + "0";
         return Integer.parseInt(Unver, 2);
+    }
+
+    void Correct_Registry() {
+        PrA = Corect_R(PrA);
+        PrB = Corect_R(PrB);
+        PrC = Corect_R(PrC);
+        PrD = Corect_R(PrD);
+    }
+    Integer Corect_R(Integer R){
+        if (R != null) {
+            String Pri = Integer.toBinaryString(R);
+            String Pri1 = "";
+            for (int f = Pri.length() - 1; f != -1 && f > Pri.length() - 9; f--) {
+                Pri1 = Pri.charAt(f) + Pri1;
+            }
+            R = Integer.parseInt(Pri1, 2);
+        }
+        return R;
     }
 }
