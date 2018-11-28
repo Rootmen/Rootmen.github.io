@@ -1,10 +1,12 @@
 package com.example.rootmen.bcchelper.sigma;
 
 public class SigmaMain {
-    String Sigma_NonDeployInput;
-    boolean[] Sigma_Znak;
-    int[] Sigma_Cof;
-    int[] Sigma_Pow;
+    private String Sigma_NonDeployInput;
+    private boolean[] Sigma_Znak;
+    private int[] Sigma_Cof;
+    private int[] Sigma_Pow;
+    private int[][] Sigma_Cof_f;
+    private int deg_f;
 
     SigmaMain(String Input){
         StringBuilder _Input = new StringBuilder();
@@ -17,9 +19,10 @@ public class SigmaMain {
                 _Input.append(_g_char);
         }
         this.Sigma_NonDeployInput = _Input.toString();
+        this.Sigma_DeployInput();
     }
 
-    void Sigma_DeployInput(){
+    private void Sigma_DeployInput(){
         if(Sigma_NonDeployInput == null) return;
         int Cof_g;
         String[] _Mass = Sigma_NonDeployInput.split(" ");
@@ -48,5 +51,17 @@ public class SigmaMain {
             Sigma_Pow[g] = Integer.parseInt(_Pow.toString());
             _Pow=null;
         }
+    }
+
+    private void Sigma_Sigma_Cof_f(){
+        int Max = Sigma_Pow[0];
+        for(int g=0; g<Sigma_Pow.length; g++)
+            if(Max<Sigma_Pow[g])
+                Max=Sigma_Pow[g];
+        deg_f=Max;
+
+
+
+
     }
 }

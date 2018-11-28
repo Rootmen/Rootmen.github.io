@@ -73,6 +73,16 @@
             app:layout_constraintEnd_toEndOf="@+id/startAVTOMAT"
             app:layout_constraintStart_toStartOf="@+id/startAVTOMAT"
             app:layout_constraintTop_toBottomOf="@+id/startAVTOMAT" />
+
+        <Button
+            android:id="@+id/startAVTOMAT3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Кардан"
+            app:layout_constraintEnd_toEndOf="@+id/startAVTOMAT2"
+            app:layout_constraintStart_toStartOf="@+id/startAVTOMAT2"
+            app:layout_constraintTop_toBottomOf="@+id/startAVTOMAT2" />
     </android.support.constraint.ConstraintLayout>
 
 </RelativeLayout>

@@ -70,6 +70,14 @@ public class Menu extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        Button startAVTOMAT3 = findViewById(R.id.startAVTOMAT3);
+        startAVTOMAT3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Menu.this, KardanDM.class);
+                startActivity(intent);
+            }
+        });
         ImageView imag = findViewById(R.id.logo);
         imag.setClickable(true);
         imag.setOnClickListener(new View.OnClickListener() {

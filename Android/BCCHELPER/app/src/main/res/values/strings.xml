@@ -28,4 +28,5 @@
     <string name="title_activity_start">StartActivity</string>
     <string name="title_activity_evmlb1">EVMLB1</string>
     <string name="title_activity_evmlb2">EVMLB2</string>
+    <string name="title_activity_kardan_dm">KardanDM</string>
 </resources>
