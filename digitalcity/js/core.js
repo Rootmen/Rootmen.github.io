@@ -109,21 +109,21 @@
         var text = result[0].transcript;
         Panels.Home.voiceText.text(text);
         text = text.toLowerCase();
+        var regexp = "(скорая|сос|помогите|спасите)"; 
+        if(text.search(regexp) != -1 ){скорую
+            SosEpelepsity();
+            setTimeout(function(){ 
+                reset();
+            }, 9000);
+            type = 4;
+        }
         switch (type) {
             case 1:
-            var regexp = "будь добра моя остановка"; 
+            regexp = "будь добра моя остановка"; 
             if(text.search(regexp) != -1 ){
                 type = 2;
                 activPosition();
                 voiceRecognier.abort();
-            }
-            regexp = "(скорая|сос|помогите|спасите)"; 
-            if(text.search(regexp) != -1 ){скорую
-                SosEpelepsity();
-                setTimeout(function(){ 
-                    reset();
-                }, 9000);
-                type = 4;
             }
             break;
             case 2:
@@ -204,4 +204,7 @@
         window.speechSynthesis.speak(speech);
     };  
 
+    function getYaAPIData(){
+        https://api.rasp.yandex.net/v3.0/schedule/?apikey=79bb8005-89db-43e7-aca4-897b349b5ad4&
+    }
 })(window);
