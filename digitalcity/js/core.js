@@ -71,6 +71,7 @@
             //createMap(points);
             createRoute(points);
             Animation.fadeIn(Panels.Maps.container);
+
         }
     };
     
@@ -110,7 +111,7 @@
         Panels.Home.voiceText.text(text);
         text = text.toLowerCase();
         var regexp = "(скорая|сос|помогите|спасите)"; 
-        if(text.search(regexp) != -1 ){скорую
+        if(text.search(regexp) != -1 ){
             SosEpelepsity();
             setTimeout(function(){ 
                 reset();
@@ -165,7 +166,7 @@
 
 
     function reset() {
-        Animation.fadeOut(Panels.Maps.container);
+        Animation.fadeOut(Panels.Maps.container.hide(100));
         Animation.fadeIn(Panels.Home.container);
         inactivPosition();
         voiceRecognier.start();
@@ -205,6 +206,6 @@
     };  
 
     function getYaAPIData(){
-        https://api.rasp.yandex.net/v3.0/schedule/?apikey=79bb8005-89db-43e7-aca4-897b349b5ad4&
+       //https://api.rasp.yandex.net/v3.0/schedule/?apikey=79bb8005-89db-43e7-aca4-897b349b5ad4&
     }
 })(window);
