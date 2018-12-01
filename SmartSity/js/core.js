@@ -5,10 +5,7 @@
     var Panels = {
         Home: {
             container: $("#panel-home"),
-            microphoneIcon: {
-                t1t: $("#t1t"),
-                t2t: $("#t2t"),
-            },
+            microphoneIcon: $("#microphoneIcon"),
             voiceText: $("#voiceText"),
             clock: $("#label-clock")
         },
@@ -94,7 +91,7 @@
         // YandexMaps.buildRouteAndShowMap(testPoints);
         
     });
-
+    Panels.Home.microphoneIcon.removeClass("pulse");
     var Languages = {
         Russian: 'ru-Ru',
         English: 'en-Us'
@@ -117,7 +114,7 @@
             var regexp = "будь добра моя остановка"; 
             if(text.search(regexp) != -1 ){
                 type = 2;
-                activPosition();
+                Panels.Home.microphoneIcon.addClass("pulse");
                 voiceRecognier.abort();
             }
             break;
@@ -127,7 +124,7 @@
             if(text.search(regexp) != -1 ) {
                 text = text.split(" до ") 
                 text = text[text.length-1]  
-                inactivPosition() 
+                Panels.Home.microphoneIcon.removeClass("pulse");
                 var testPoints = [ myPoint, "тюмень, "+text ];
                 YandexMaps.buildRouteAndShowMap(testPoints);
                 
@@ -149,7 +146,7 @@
     function reset() {
         Animation.fadeOut(Panels.Maps.container);
         Animation.fadeIn(Panels.Home.container);
-        inactivPosition();
+        Panels.Home.microphoneIcon.removeClass("pulse");
         voiceRecognier.start();
     }
 
@@ -157,15 +154,7 @@
         Animation.fadeOut(Panels.Home.container);
     }
 
-    function activPosition() {
-        Panels.Home.microphoneIcon.t2t.addClass("pulse");
-        Panels.Home.microphoneIcon.t1t.addClass("pulse");
-    }
     
-    function inactivPosition() {
-        Panels.Home.microphoneIcon.t1t.removeClass("pulse");
-        Panels.Home.microphoneIcon.t1t.removeClass("pulse");
-    }
 
     
 
