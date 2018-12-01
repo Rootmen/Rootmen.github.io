@@ -3,10 +3,11 @@
     /* design */
     
     var Panels = {
-        Voice: {
-            container: $("#panel-voice"),
+        Home: {
+            container: $("#panel-home"),
             microphoneIcon: $("#microphoneIcon"),
-            voiceText: $("#voiceText")
+            voiceText: $("#voiceText"),
+            clock: $("#label-clock")
         },
 
         Maps: {
@@ -75,6 +76,14 @@
     };  
 
 
+    setInterval(() => {
+        var date = new Date();
+        Panels.Home.clock.text(__toStrTime(date.getHours()) + ":" + __toStrTime(date.getMinutes()) + ":" + __toStrTime(date.getSeconds()));
+    }, 120);
+
+    function __toStrTime(num) {
+        return ("0" + num).slice(-2);
+    }
     //main
     YandexMaps.initialize('yamaps-map', function(){
         createMap();
@@ -82,7 +91,7 @@
         // YandexMaps.buildRouteAndShowMap(testPoints);
         
     });
-    Panels.Voice.microphoneIcon.removeClass("pulse");
+    Panels.Home.microphoneIcon.removeClass("pulse");
     var Languages = {
         Russian: 'ru-Ru',
         English: 'en-Us'
@@ -98,14 +107,14 @@
     voiceRecognier.onresult = function(e) {
         var result = e.results[e.resultIndex];
         var text = result[0].transcript;
-        Panels.Voice.voiceText.text(text);
+        Panels.Home.voiceText.text(text);
         text = text.toLowerCase();
         switch (type) {
             case 1:
             var regexp = "будь добра моя остановка"; 
             if(text.search(regexp) != -1 ){
                 type = 2;
-                Panels.Voice.microphoneIcon.addClass("pulse");
+                Panels.Home.microphoneIcon.addClass("pulse");
                 voiceRecognier.abort();
             }
             break;
@@ -115,8 +124,8 @@
             if(text.search(regexp) != -1 ) {
                 text = text.split(" до ") 
                 text = text[text.length-1]  
-                Panels.Voice.microphoneIcon.removeClass("pulse");
-                var testPoints = [ "тюмень, сквер имени немцова", "тюмень, "+text ];
+                Panels.Home.microphoneIcon.removeClass("pulse");
+                var testPoints = [ myPoint, "тюмень, "+text ];
                 YandexMaps.buildRouteAndShowMap(testPoints);
                 
                 hideMainPanel();
@@ -124,7 +133,7 @@
 
                 setTimeout(function(){ 
                     reset();
-                }, 3000);
+                }, 9000);
                 type = 1;
                 
             }
@@ -136,13 +145,13 @@
 
     function reset() {
         Animation.fadeOut(Panels.Maps.container);
-        Animation.fadeIn(Panels.Voice.container);
-        Panels.Voice.microphoneIcon.removeClass("pulse");
+        Animation.fadeIn(Panels.Home.container);
+        Panels.Home.microphoneIcon.removeClass("pulse");
         voiceRecognier.start();
     }
 
     function hideMainPanel() {
-        Animation.fadeOut(Panels.Voice.container);
+        Animation.fadeOut(Panels.Home.container);
     }
 
     

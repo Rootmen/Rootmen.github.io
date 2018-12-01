@@ -22,7 +22,7 @@ function createMap() {
     })
 
     myMap = new ymaps.Map(window.yamaps_map, {
-        center: [55.750625, 37.626],
+        center: [57.149813, 65.547107],
         zoom: 7,
         controls: [routeTypeSelector]
     }, {
