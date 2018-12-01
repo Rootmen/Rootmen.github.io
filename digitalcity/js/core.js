@@ -16,6 +16,10 @@
         Maps: {
             container: $("#panel-maps"),
             map: $("#ya-map")
+        },
+
+        Sos: {
+            container: $("#panel-sos")
         }
     }
 
@@ -70,13 +74,6 @@
         }
     };
     
-   
-
-    window.speak = function(text) {
-        var speech = new SpeechSynthesisUtterance('тест');
-        speech.lang = Languages.Russian;
-        window.speechSynthesis.speak(speech);
-    };  
 
 
     setInterval(() => {
@@ -120,17 +117,25 @@
                 activPosition();
                 voiceRecognier.abort();
             }
+            regexp = "(скорая|сос|помогите|спасите)"; 
+            if(text.search(regexp) != -1 ){скорую
+                SosEpelepsity();
+                setTimeout(function(){ 
+                    reset();
+                }, 9000);
+                type = 4;
+            }
             break;
             case 2:
             if(!result.isFinal) break;
             regexp = "(как добраться до|как проехать до|маршрут до|как доехать до)"; 
             if(text.search(regexp) != -1 ) {
-                text = text.split(" до ") 
-                text = text[text.length-1]  
-                inactivPosition() 
+                text = text.split(" до ", 2);
+                text = text[text.length-1];
+                inactivPosition();
                 var testPoints = [ myPoint, "тюмень, "+text ];
                 YandexMaps.buildRouteAndShowMap(testPoints);
-                
+                voiseText("Маршрут построен");
                 hideMainPanel();
                 Animation.fadeIn(Panels.Maps.container);
 
@@ -138,11 +143,24 @@
                     reset();
                 }, 9000);
                 type = 1;
-                
+            }
+            regexp = "(где я|что рядом|какая остановка)"; 
+            if(text.search(regexp) != -1 ) {
+                inactivPosition();
+                var testPoints = [myPoint];
+                YandexMaps.buildRouteAndShowMap(testPoints);
+                    
+                hideMainPanel();
+                Animation.fadeIn(Panels.Maps.container);
+                voiseText("Вы находитесь здесь");
+                setTimeout(function(){ 
+                    reset();
+                }, 9000);
+                type = 1;
             }
             break;
         }
-    }
+    };
     voiceRecognier.start();
 
 
@@ -163,10 +181,27 @@
     }
     
     function inactivPosition() {
-        Panels.Home.microphoneIcon.t1t.removeClass("pulse2");
+        Panels.Home.microphoneIcon.t2t.removeClass("pulse2");
         Panels.Home.microphoneIcon.t1t.removeClass("pulse1");
     }
 
-    
+    function SosEpelepsity() {
+        Panels.Sos.container.show();
+
+        setTimeout(function(){ 
+            AntiSosEpelepsity();
+        }, 9000);
+    }
+
+    function AntiSosEpelepsity() {
+        Panels.Sos.container.hide();
+        type = 1;
+    }
+
+    function voiseText(text) {
+        var speech = new SpeechSynthesisUtterance(text);
+        speech.lang = Languages.Russian;
+        window.speechSynthesis.speak(speech);
+    };  
 
 })(window);
