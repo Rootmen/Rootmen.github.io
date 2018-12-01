@@ -82,7 +82,7 @@ body{
     /*border: 1px solid red;*/
 }
 
-.icon-logo-wrap.pulse .logo-part.one {
+/*.icon-logo-wrap.pulse .logo-part.one {
     position: absolute;
     animation: pulse1 1s infinite;
 }
@@ -90,7 +90,7 @@ body{
 .icon-logo-wrap.pulse .logo-part.three {
     position: absolute;
     animation: pulse2 1s infinite;
-}
+}*/
 
 .logo-part  {
     position: absolute;
@@ -145,29 +145,35 @@ body{
 
 @keyframes pulse1 {
     0% {
-        transform: scale(1);
+        top: 70px;
+        left:150px; 
     }
 
     50% {
-        transform: scale(1.1);
+        top: 60px;
+        left:160px;
     }
 
     100% {
-        transform: scale(1);
+        top: 70px;
+        left:150px;
     }
 }
 
 @keyframes pulse2 {
     0% {
-        transform: scale(1);
+        top: 150px;
+        left:70px;
     }
 
     50% {
-        transform: scale(1.5);
+        top: 160px;
+        left:60px;
     }
 
     100% {
-        transform: scale(1);
+        top: 150px;
+        left:70px;
     }
 }
 

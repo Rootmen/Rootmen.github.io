@@ -158,13 +158,13 @@
     }
 
     function activPosition() {
-        Panels.Home.microphoneIcon.t2t.addClass("pulse");
-        Panels.Home.microphoneIcon.t1t.addClass("pulse");
+        Panels.Home.microphoneIcon.t2t.addClass("pulse2");
+        Panels.Home.microphoneIcon.t1t.addClass("pulse1");
     }
     
     function inactivPosition() {
-        Panels.Home.microphoneIcon.t1t.removeClass("pulse");
-        Panels.Home.microphoneIcon.t1t.removeClass("pulse");
+        Panels.Home.microphoneIcon.t1t.removeClass("pulse2");
+        Panels.Home.microphoneIcon.t1t.removeClass("pulse1");
     }
 
     
