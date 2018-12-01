@@ -1,19 +1,49 @@
-function init () {
-    alert(test);
+
+// Создаем карту с добавленной на нее кнопкой.
+var myMap;
+var routeTypeSelector;
+
+var currentRoute = null;
+
+function createMap() {
+    // Создаём выпадающий список для выбора типа маршрута.
+    routeTypeSelector = new ymaps.control.ListBox({
+        data: {
+            content: 'Как добраться'
+        },
+        items: [
+            //new ymaps.control.ListBoxItem({data: {content: "Авто"},state: {selected: true}}),
+            new ymaps.control.ListBoxItem({data: {content: "Общественным транспортом"},state: {selected: true}}),
+            new ymaps.control.ListBoxItem({data: {content: "Пешком"}})
+        ],
+        options: {
+            itemSelectOnClick: false
+        }
+    })
+
+    myMap = new ymaps.Map(window.yamaps_map, {
+        center: [55.750625, 37.626],
+        zoom: 7,
+        controls: [routeTypeSelector]
+    }, {
+        buttonMaxWidth: 300
+    });
+}
+
+/** @param {Array} points */
+function createRoute(points) {
     // Создаем модель мультимаршрута.
-    var multiRouteModel = new ymaps.multiRouter.MultiRouteModel([
-            [57.149830, 65.547097],
-            ("Тюмень," + myMessage)
-        ], {
+    var multiRouteModel = new ymaps.multiRouter.MultiRouteModel(
+        points, {
             // Путевые точки можно перетаскивать.
             // Маршрут при этом будет перестраиваться.
-            wayPointDraggable: false,
+            //wayPointDraggable: false,
             boundsAutoApply: true,
             routingMode: "masstransit"
         }),
 
         // Создаём выпадающий список для выбора типа маршрута.
-        routeTypeSelector = new ymaps.control.ListBox({
+        /*routeTypeSelector = new ymaps.control.ListBox({
             data: {
                 content: 'Как добраться'
             },
@@ -25,7 +55,7 @@ function init () {
             options: {
                 itemSelectOnClick: false
             }
-        }),
+        }),*/
         // Получаем прямые ссылки на пункты списка.
         //autoRouteItem = routeTypeSelector.get(0),
         masstransitRouteItem = routeTypeSelector.get(0),
@@ -45,25 +75,24 @@ function init () {
         new MultiRouteCustomView(multiRouteModel);
     });
 
-    // Создаем карту с добавленной на нее кнопкой.
-    var myMap = new ymaps.Map('map', {
-            center: [55.750625, 37.626],
-            zoom: 7,
-            controls: [routeTypeSelector]
-        }, {
-            buttonMaxWidth: 300
-        }),
+    
 
-        // Создаем на основе существующей модели мультимаршрут.
-        multiRoute = new ymaps.multiRouter.MultiRoute(multiRouteModel, {
-            // Путевые точки можно перетаскивать.
-            // Маршрут при этом будет перестраиваться.
-            wayPointDraggable: false,
-            boundsAutoApply: true
-        });
+    // Создаем на основе существующей модели мультимаршрут.
+    multiRoute = new ymaps.multiRouter.MultiRoute(multiRouteModel, {
+        // Путевые точки можно перетаскивать.
+        // Маршрут при этом будет перестраиваться.
+        wayPointDraggable: false,
+        boundsAutoApply: true
+    });
+
+
+    if(currentRoute) {
+        myMap.geoObjects.remove(currentRoute);
+    }
 
     // Добавляем мультимаршрут на карту.
     myMap.geoObjects.add(multiRoute);
+    currentRoute = multiRoute;
 
     function changeRoutingMode(routingMode, targetItem) {
         multiRouteModel.setParams({ routingMode: routingMode }, true);
@@ -79,4 +108,4 @@ function init () {
     }
 }
 
-ymaps.ready(init);
+//ymaps.ready(init);

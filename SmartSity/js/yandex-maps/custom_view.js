@@ -8,7 +8,7 @@ ymaps.modules.define('MultiRouteCustomView', [
         this.state = "init";
         this.stateChangeEvent = null;
         // Элемент, в который будет выводиться текст.
-        this.outputElement = $('<div></div>').appendTo('#viewContainer');
+        this.outputElement = $('<div></div>').appendTo('#ya-map-viewContainer');
 
         this.rebuildOutput();
 
@@ -48,6 +48,14 @@ ymaps.modules.define('MultiRouteCustomView', [
             this.outputElement.html(
                 this[processorName](this.multiRouteModel, this.stateChangeEvent)
             );
+
+            //window.speak(this.outputElement.text());
+            //window.alert(this.outputElement.text());
+
+            if(this.outputElement.text().startsWith("Данные")) {
+                //window.alert(this.outputElement.text());
+                window.speak(this.outputElement.text());
+            }
         },
 
         processInit: function () {
