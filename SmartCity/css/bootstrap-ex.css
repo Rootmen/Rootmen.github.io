@@ -39,13 +39,7 @@
     }
 }
 
-#yamaps-map {
+#ya-map {
     width: 640px;
     height: 480px;
-}
-
-#ya-map-viewContainer {
-    width: 480px;
-    text-align: left;
-    margin-left: 10px;
 }
