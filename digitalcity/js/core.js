@@ -69,6 +69,7 @@
 
         /** @param {Array} points */
         buildRouteAndShowMap: function(points) {
+            Panels.Maps.helpinfo.text("");
             //createMap(points);
             createRoute(points);
             Animation.fadeIn(Panels.Maps.container);
@@ -78,7 +79,7 @@
         buildRouteAndShowMapSolo: function(points,text) {
             createRoute(points);
             setSolomap(text);
-            Panels.Maps.helpinfo.hide();
+            Panels.Maps.helpinfo.text("");
             Animation.fadeIn(Panels.Maps.container);
         }
 
