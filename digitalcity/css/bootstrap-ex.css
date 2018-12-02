@@ -35,6 +35,14 @@ body{
     font-size: 32px;
 }
 
+#label-logo {
+    position: fixed;
+    bottom: 5px;
+    left: 12px;
+    font-size: 20px;
+    color: #555;
+}
+
 .widget {
     position: fixed;
 }
