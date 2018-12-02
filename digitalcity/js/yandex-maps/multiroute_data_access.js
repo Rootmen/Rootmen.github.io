@@ -22,8 +22,8 @@ function createMap() {
     })
 
     myMap = new ymaps.Map(window.yamaps_map, {
-        center: [57.149813, 65.547107],
-        zoom: 7,
+        center: [ 57.159746, 65.522072 ],
+        zoom: 20,
         controls: [routeTypeSelector]
     }, {
         buttonMaxWidth: 300
@@ -32,6 +32,7 @@ function createMap() {
 
 /** @param {Array} points */
 function createRoute(points) {
+    
     // Создаем модель мультимаршрута.
     var multiRouteModel = new ymaps.multiRouter.MultiRouteModel(
         points, {
@@ -106,6 +107,19 @@ function createRoute(points) {
         targetItem.select();
         routeTypeSelector.collapse();
     }
+
 }
 
+function setSolomap(text) {
+        var searchControl = new ymaps.control.SearchControl({
+            options: {
+                provider: 'yandex#search'
+            }
+        });
+        myMap.controls.add(searchControl);
+    
+        // Программно выполним поиск определённых кафе в текущей
+        // прямоугольной области карты.
+        searchControl.search(text);
+    }
 //ymaps.ready(init);

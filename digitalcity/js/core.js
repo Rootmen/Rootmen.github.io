@@ -15,7 +15,9 @@
 
         Maps: {
             container: $("#panel-maps"),
-            map: $("#ya-map")
+            map: $("#ya-map"),
+            map2: $("#yamaps-map-solo"),
+            helpinfo: $("#ya-map-viewContainer")
         },
 
         Sos: {
@@ -63,7 +65,6 @@
         initialize: function(map, callback) {
             window.yamaps_map = map;
             ymaps.ready(callback);
-            
         },
 
         /** @param {Array} points */
@@ -71,8 +72,16 @@
             //createMap(points);
             createRoute(points);
             Animation.fadeIn(Panels.Maps.container);
+        },
 
+        /** @param {Array'Шоколадница')} points */
+        buildRouteAndShowMapSolo: function(points,text) {
+            createRoute(points);
+            setSolomap(text);
+            Panels.Maps.helpinfo.hide();
+            Animation.fadeIn(Panels.Maps.container);
         }
+
     };
     
 
@@ -110,8 +119,9 @@
         var text = result[0].transcript;
         Panels.Home.voiceText.text(text);
         text = text.toLowerCase();
-        var regexp = "(скорая|сос|помогите|спасите)"; 
+        var regexp = "(скорая|помогите|спасите|mayday)"; 
         if(text.search(regexp) != -1 ){
+            voiseText("Звоню в службу спасения");
             SosEpelepsity();
             setTimeout(function(){ 
                 reset();
@@ -120,7 +130,7 @@
         }
         switch (type) {
             case 1:
-            regexp = "будь добра моя остановка"; 
+            regexp = "остановка"; 
             if(text.search(regexp) != -1 ){
                 type = 2;
                 activPosition();
@@ -149,8 +159,9 @@
             if(text.search(regexp) != -1 ) {
                 inactivPosition();
                 var testPoints = [myPoint];
+                
                 YandexMaps.buildRouteAndShowMap(testPoints);
-                    
+                Panels.Maps.helpinfo.hide();
                 hideMainPanel();
                 Animation.fadeIn(Panels.Maps.container);
                 voiseText("Вы находитесь здесь");
@@ -158,6 +169,22 @@
                     reset();
                 }, 9000);
                 type = 1;
+            }
+            regexp = "(найди|найти)"; 
+            if(text.search(regexp) != -1 ) {
+                 var group = /(найти |найди )(.*)/g.exec(text);
+                if(group[2]) {
+                    text = group[2];
+                inactivPosition();
+                var testPoints = [myPoint];
+                YandexMaps.buildRouteAndShowMapSolo(testPoints,text.trim());
+                hideMainPanel();
+                Animation.fadeIn(Panels.Maps.map2);
+                setTimeout(function(){ 
+                    reset();
+                }, 15000);
+                type = 1;                
+                }
             }
             break;
         }
@@ -168,8 +195,11 @@
     function reset() {
         Animation.fadeOut(Panels.Maps.container.hide(100));
         Animation.fadeIn(Panels.Home.container);
+        Animation.fadeIn(Panels.Maps.map2);
+        Panels.Maps.helpinfo.show();
         inactivPosition();
         voiceRecognier.start();
+        type = 1
     }
 
     function hideMainPanel() {
