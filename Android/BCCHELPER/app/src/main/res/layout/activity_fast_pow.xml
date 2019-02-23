@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".match.FastPow">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/FP_num"
+            android:layout_width="53dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:ems="10"
+            android:hint="7"
+            android:inputType="number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/FP_pow" />
+
+        <EditText
+            android:id="@+id/FP_pow"
+            android:layout_width="56dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="15"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="@+id/FP_num"
+            app:layout_constraintStart_toEndOf="@+id/FP_num"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView41"
+            android:layout_width="38dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:text="mod"
+            app:layout_constraintBottom_toBottomOf="@+id/FP_num"
+            app:layout_constraintStart_toEndOf="@+id/FP_num"
+            app:layout_constraintTop_toTopOf="@+id/FP_num" />
+
+        <EditText
+            android:id="@+id/FP_mod"
+            android:layout_width="53dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:ems="10"
+            android:hint="9"
+            android:inputType="number"
+            app:layout_constraintBottom_toBottomOf="@+id/FP_num"
+            app:layout_constraintStart_toEndOf="@+id/textView41"
+            app:layout_constraintTop_toTopOf="@+id/FP_num" />
+
+        <TextView
+            android:id="@+id/FP_text"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="Тут будет подсчет"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/FP_go" />
+
+        <Button
+            android:id="@+id/FP_go"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Подсчитать"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/FP_mod" />
+    </android.support.constraint.ConstraintLayout>
+</android.support.design.widget.CoordinatorLayout>

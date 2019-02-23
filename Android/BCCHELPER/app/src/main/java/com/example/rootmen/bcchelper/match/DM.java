@@ -76,6 +76,14 @@ DM extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        Button Fp = findViewById(R.id.FP_to_go);
+        Fp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DM.this, FastPow.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

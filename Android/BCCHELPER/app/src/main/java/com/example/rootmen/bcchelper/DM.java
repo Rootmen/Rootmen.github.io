@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import com.example.rootmen.bcchelper.match.FastPow;
+
 public class DM extends AppCompatActivity {
 
     @Override
@@ -37,6 +39,15 @@ public class DM extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DM.this, DM.matriksObrt.class);
+                startActivity(intent);
+            }
+        });
+
+        Button Fp = findViewById(R.id.FP_to_go);
+        Fp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DM.this, FastPow.class);
                 startActivity(intent);
             }
         });

@@ -13,6 +13,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".match.Sumvol_legrage"
+            android:label="@string/title_activity_sumvol_legrage"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".match.FastPow"
+            android:label="@string/title_activity_fast_pow"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".Menu"
             android:label="@string/title_activity_menu"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -111,7 +119,7 @@
         <activity
             android:name=".KardanDM"
             android:label="@string/title_activity_kardan_dm"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
