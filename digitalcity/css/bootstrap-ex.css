@@ -43,6 +43,18 @@ body{
     color: #555;
 }
 
+#btn-lang {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    background: #555;
+    opacity: 0.8;
+    color: #fff;
+    padding: 10px;
+    font-size: 48px;
+    cursor: pointer;
+}
+
 .widget {
     position: fixed;
 }

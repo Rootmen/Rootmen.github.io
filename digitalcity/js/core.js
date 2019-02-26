@@ -10,7 +10,8 @@
                 t2t: $("#t2t"),
             },
             voiceText: $("#voiceText"),
-            clock: $("#label-clock")
+            clock: $("#label-clock"),
+            lang: $("#btn-lang")
         },
 
         Maps: {
@@ -60,7 +61,7 @@
     };
 
     //maps
-    var myPoint = [ 57.159746, 65.522072 ];
+    var myPoint = [ 55.822919, 37.642792 ];
     var YandexMaps = {
         initialize: function(map, callback) {
             window.yamaps_map = map;
@@ -104,9 +105,44 @@
     });
 
     var Languages = {
-        Russian: 'ru-Ru',
-        English: 'en-Us'
+        Russian: 'ru-RU',
+        English: 'en-US'
     };
+
+    var City = {
+        "ru-RU": "Москва",
+        "en-US": "Moscow"
+    };
+
+    var Voices = {
+        callingEmergency: {
+            "ru-RU": "Звоню в службу спасения",
+            "en-US": "Calling emergency"
+        },
+
+        routeBuilt: {
+            "ru-RU": "Маршрут построен",
+            "en-US": "Route has been built"
+        }
+    }
+
+    var currentLang = Languages.Russian;
+
+    Panels.Home.lang.on('click', function() {
+        if(currentLang == Languages.Russian) {
+            currentLang = Languages.English;
+            $(this).text("RU");
+        } else {
+            currentLang = Languages.Russian;
+            $(this).text("EN"); 
+        }
+
+        voiceRecognier.lang = currentLang;
+        voiceRecognier.stop();
+
+        reset();
+    });
+
     var type = 1;
     var voiceRecognier = new webkitSpeechRecognition();
     voiceRecognier.interimResults = true;
@@ -120,9 +156,9 @@
         var text = result[0].transcript;
         Panels.Home.voiceText.text(text);
         text = text.toLowerCase();
-        var regexp = "(скорая|помогите|спасите|mayday)"; 
+        var regexp = "(скорая|помогите|спасите|mayday|sos|help)"; 
         if(text.search(regexp) != -1 ){
-            voiseText("Звоню в службу спасения");
+            voiseText(Voices.callingEmergency[currentLang]);
             SosEpelepsity();
             setTimeout(function(){ 
                 reset();
@@ -131,7 +167,7 @@
         }
         switch (type) {
             case 1:
-            regexp = "остановка"; 
+            regexp = "(остановка|listen)"; 
             if(text.search(regexp) != -1 ){
                 type = 2;
                 activPosition();
@@ -140,14 +176,14 @@
             break;
             case 2:
             if(!result.isFinal) break;
-            regexp = "(как добраться до|как проехать до|маршрут до|как доехать до)"; 
+            regexp = "(как добраться до|как проехать до|маршрут до|как доехать до|route to|how to get to)"; 
             if(text.search(regexp) != -1 ) {
                 text = text.split(" до ", 2);
                 text = text[text.length-1];
                 inactivPosition();
-                var testPoints = [ myPoint, "тюмень, "+text ];
+                var testPoints = [ myPoint, City[currentLang] + ", " +text ];
                 YandexMaps.buildRouteAndShowMap(testPoints);
-                voiseText("Маршрут построен");
+                voiseText(Voices.routeBuilt[currentLang]);
                 hideMainPanel();
                 Animation.fadeIn(Panels.Maps.container);
 
@@ -156,7 +192,7 @@
                 }, 9000);
                 type = 1;
             }
-            regexp = "(где я|что рядом|какая остановка)"; 
+            regexp = "(где я|что рядом|какая остановка|where am i|what is nearby|what stop)"; 
             if(text.search(regexp) != -1 ) {
                 inactivPosition();
                 var testPoints = [myPoint];
@@ -171,9 +207,9 @@
                 }, 9000);
                 type = 1;
             }
-            regexp = "(найди|найти)"; 
+            regexp = "(найди|найти|find|search)"; 
             if(text.search(regexp) != -1 ) {
-                 var group = /(найти |найди )(.*)/g.exec(text);
+                 var group = /(найди |найти |find |search )(.*)/g.exec(text);
                 if(group[2]) {
                     text = group[2];
                 inactivPosition();
@@ -202,6 +238,7 @@
         voiceRecognier.start();
         type = 1
     }
+
 
     function hideMainPanel() {
         Animation.fadeOut(Panels.Home.container);
@@ -232,7 +269,7 @@
 
     function voiseText(text) {
         var speech = new SpeechSynthesisUtterance(text);
-        speech.lang = Languages.Russian;
+        speech.lang = currentLang;
         window.speechSynthesis.speak(speech);
     };  
 

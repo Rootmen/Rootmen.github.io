@@ -4,7 +4,7 @@ var YandexMaps = {
 
     initialize: function() {
         YandexMaps.map = new ymaps.Map('map', {
-            center: [57.154885, 65.532953],
+            center: [55.822919, 37.642792],
             zoom: 102,
             controls: []
         }, {
@@ -45,7 +45,7 @@ var YandexMaps = {
 
 ymaps.ready(function() {
     YandexMaps.initialize();
-    var route = YandexMaps.createRoute([ "тюмень, сквер имени немцова", "тюмень, ленина 4" ]);
+    var route = YandexMaps.createRoute([ [ 55.822919, 37.642792 ], "москва, метро вднх" ]);
     YandexMaps.setRoute(route);
     YandexMaps.setSolomap()
 });
