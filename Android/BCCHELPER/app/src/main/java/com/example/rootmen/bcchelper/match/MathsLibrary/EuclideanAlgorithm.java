@@ -16,7 +16,6 @@ public class EuclideanAlgorithm {
         }
     }
 
-
     public EuclideanAlgorithmReturn GetNod(long a, long b){
         if (a == 0) {
            return new EuclideanAlgorithmReturn(b,0,1);
@@ -24,7 +23,6 @@ public class EuclideanAlgorithm {
         EuclideanAlgorithmReturn  rec = GetNod (b % a, a);
         return new EuclideanAlgorithmReturn(rec.g, rec.y - (b / a) * rec.x, rec.x);
     }
-
 
     public EuclideanAlgorithmReturn GetNodS(long a, long b, String Answer){
         if (a == 0) {

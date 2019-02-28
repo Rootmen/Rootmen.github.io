@@ -1,8 +1,6 @@
 package com.company.MathsLibrary;
 
 public class FastPow {
-
-
     public String GetStringFastPow(long BaseDegree, long Pow, long Module){
         StringBuilder Answer = new StringBuilder();
         String BinaryMassPow = Long.toBinaryString(Pow);
@@ -29,7 +27,6 @@ public class FastPow {
         }
         return Answer.toString();
     }
-
 
     public long GetFastPow(long BaseDegree, long Pow, long Module){
         String BinaryMassPow = Long.toBinaryString(Pow);
