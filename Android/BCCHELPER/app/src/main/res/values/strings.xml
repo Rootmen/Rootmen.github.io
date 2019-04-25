@@ -31,4 +31,6 @@
     <string name="title_activity_kardan_dm">KardanDM</string>
     <string name="title_activity_fast_pow">FastPow</string>
     <string name="title_activity_sumvol_legrage">Sumvol_legrage</string>
+    <string name="title_activity_miller_rabin">MillerRabin</string>
+    <string name="title_activity_diof">Diof</string>
 </resources>

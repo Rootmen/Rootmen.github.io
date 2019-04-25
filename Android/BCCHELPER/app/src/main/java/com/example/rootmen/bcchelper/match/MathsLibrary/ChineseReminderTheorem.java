@@ -1,4 +1,4 @@
-package com.company.MathsLibrary;
+package com.example.rootmen.bcchelper.match.MathsLibrary;
 
 public class ChineseReminderTheorem {
     private String GetBufferStringChineseReminderTheorem(long x1,long mod1, long x2, long mod2, long mod3, long Difference){

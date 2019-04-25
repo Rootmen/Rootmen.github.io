@@ -1,8 +1,10 @@
-package com.company.MathsLibrary;
+package com.example.rootmen.bcchelper.match.MathsLibrary;
 
 public class EuclideanAlgorithm {
     public class EuclideanAlgorithmReturn{
-        long g, x, y;
+        public long g;
+        public long x;
+        public long y;
         String Answer = "";
         EuclideanAlgorithmReturn(long g,long x,long y){
             this.g = g;  this.x = x;  this.y = y;

@@ -1,4 +1,4 @@
-package com.company.MathsLibrary;
+package com.example.rootmen.bcchelper.match.MathsLibrary;
 
 import java.util.BitSet;
 import java.util.Enumeration;

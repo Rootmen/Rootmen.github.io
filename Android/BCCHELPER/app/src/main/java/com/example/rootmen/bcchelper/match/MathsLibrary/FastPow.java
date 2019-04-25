@@ -1,7 +1,7 @@
-package com.company.MathsLibrary;
+package com.example.rootmen.bcchelper.match.MathsLibrary;
 
 public class FastPow {
-    public String GetStringFastPow(long BaseDegree, long Pow, long Module){
+    public static String GetStringFastPow(long BaseDegree, long Pow, long Module){
         StringBuilder Answer = new StringBuilder();
         String BinaryMassPow = Long.toBinaryString(Pow);
         long BinaryMassPowSize = BinaryMassPow.length();
@@ -28,7 +28,7 @@ public class FastPow {
         return Answer.toString();
     }
 
-    public long GetFastPow(long BaseDegree, long Pow, long Module){
+    public static long GetFastPow(long BaseDegree, long Pow, long Module){
         String BinaryMassPow = Long.toBinaryString(Pow);
         long BinaryMassPowSize = BinaryMassPow.length();
         long Number = BaseDegree;

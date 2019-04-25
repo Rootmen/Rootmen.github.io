@@ -84,6 +84,22 @@ DM extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        Button MillerRabin = findViewById(R.id.MillerRabin_to_go);
+        MillerRabin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DM.this, MillerRabin.class);
+                startActivity(intent);
+            }
+        });
+        Button Diof = findViewById(R.id.Diof_to_go);
+        Diof.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DM.this, Diof.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

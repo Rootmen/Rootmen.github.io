@@ -13,10 +13,10 @@
         <Button
             android:id="@+id/ObratVcolce"
             android:layout_width="235dp"
-            android:layout_height="76dp"
-            android:layout_marginEnd="24dp"
+            android:layout_height="55dp"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
             android:text="Обратный элемент по модулю в кольце"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.506"
@@ -26,10 +26,10 @@
         <Button
             android:id="@+id/NOD"
             android:layout_width="235dp"
-            android:layout_height="76dp"
-            android:layout_marginEnd="8dp"
+            android:layout_height="55dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="28dp"
+            android:layout_marginEnd="8dp"
             android:text="Наименьший общий делитель"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.488"
@@ -39,8 +39,8 @@
         <Button
             android:id="@+id/NODret"
             android:layout_width="235dp"
-            android:layout_height="76dp"
-            android:layout_marginTop="24dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="8dp"
             android:text="Обратный ход НОДа"
             app:layout_constraintEnd_toEndOf="@+id/NOD"
             app:layout_constraintHorizontal_bias="0.503"
@@ -50,8 +50,8 @@
         <Button
             android:id="@+id/Matrikc"
             android:layout_width="235dp"
-            android:layout_height="76dp"
-            android:layout_marginTop="24dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="8dp"
             android:text="Делитель нуля"
             app:layout_constraintEnd_toEndOf="@+id/NODret"
             app:layout_constraintStart_toStartOf="@+id/NODret"
@@ -60,10 +60,10 @@
         <Button
             android:id="@+id/KitTeoryStart"
             android:layout_width="235dp"
-            android:layout_height="76dp"
-            android:layout_marginEnd="24dp"
+            android:layout_height="55dp"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
             android:text="Китайская теорема об остатках"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -72,13 +72,35 @@
         <Button
             android:id="@+id/FP_to_go"
             android:layout_width="235dp"
-            android:layout_height="76dp"
+            android:layout_height="55dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:text="Быстрое умножение"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ObratVcolce" />
+
+        <Button
+            android:id="@+id/MillerRabin_to_go"
+            android:layout_width="235dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Миллер-Рябин"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/FP_to_go" />
+
+        <Button
+            android:id="@+id/Diof_to_go"
+            android:layout_width="235dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="8dp"
+            android:text="Диофантово уравн."
+            app:layout_constraintEnd_toEndOf="@+id/MillerRabin_to_go"
+            app:layout_constraintStart_toStartOf="@+id/MillerRabin_to_go"
+            app:layout_constraintTop_toBottomOf="@+id/MillerRabin_to_go" />
     </android.support.constraint.ConstraintLayout>
 </android.support.design.widget.CoordinatorLayout>
