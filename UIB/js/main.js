@@ -71,7 +71,7 @@ var tabel = {
     setInterval(function () {
         var newSubject = getNewSubject();
         myDate = new Date();
-        var week = myDate.getWeek() % 2 !== 0 ? '1' : '2';
+        var week = myDate.getWeek() % 2 !== 1 ? '1' : '2';
         msg.html('<p>' + newSubject.ms + '</p>' + '<p>' + ((newSubject.ms2) ? newSubject.ms2 : '') + '</p>' + '<p>Сейчас ' + week + ' неделя</p>');
         var tabelHtml = $(document.body).find('tr');
         tabelHtml.removeClass('color-mode');
@@ -107,8 +107,8 @@ var tabel = {
     function getNewSubject() {
         var thisSubject = null;
         var day = myDate.getDay() - 1;
-        var weekOrigin = myDate.getWeek() % 2 !== 0 ? 'w1' : 'w2';
-        var week = myDate.getWeek() % 2 !== 0 ? 'w1' : 'w2';
+        var weekOrigin = myDate.getWeek() % 2 !== 1 ? 'w1' : 'w2';
+        var week = myDate.getWeek() % 2 !== 1 ? 'w1' : 'w2';
         if (day > 5 || day < 0) {
             return {ms: "Выходные"}
         }
