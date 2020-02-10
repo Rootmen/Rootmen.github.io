@@ -179,10 +179,11 @@ var tabel = {
                 } else if (nextPara[weekOrigin] === 'replay') {
                     weekOrigin = 'w2';
                 }
+                endDate.setHours(time2[0].split(':')[0], time2[0].split(':')[1], 0, 0);
                 var diff = Math.abs(endDate.getTime() - myDate.getTime());
                 var house = Math.floor((diff / (1000 * 60 * 60)) % 24);
                 var mun = Math.floor(((diff / (1000 * 60)) % 60));
-                answer.ms2 = "Седующая пара \"" + nextPara[weekOrigin].subject + "\" через: " + house + ":" + mun;
+                answer.ms2 = "Седующая пара \"" + nextPara[weekOrigin].subject + "\", а эта закончиться через: " + house + ":" + mun;
                 return answer;
             }
         }
@@ -196,6 +197,6 @@ var tabel = {
         diff = Math.abs(endDate.getTime() - myDate.getTime());
         house = Math.floor((diff / (1000 * 60 * 60)) % 24);
         mun = Math.floor(((diff / (1000 * 60)) % 60));
-        return {ms: 'Пары еще не начались, до начала пар ' + house + ':' + mun};
+        return {ms: 'Пары еще не начались, до начала пар ' + house + ':' + mun, day: weekDay[day], num: 1};
     }
 }());
