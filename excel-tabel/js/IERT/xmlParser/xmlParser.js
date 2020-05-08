@@ -18,7 +18,13 @@ function XmlParser(buttonId, charge) {
             name[Array[0][g]] = {};
             nameMass[g] = Array[0][g];
         }
-
+        for (g = 1; g < Array.length; g++) {
+            if (Array[g].length <= 2) {
+                continue;
+            }
+            name[Array[g][0]] = {};
+            nameMass[g] = Array[g][0];
+        }
         for (g = 1; g < Array.length; g++) {
             if (typeof Array[g][2] === "string") {
                 Array = Array.slice(g);
